@@ -1,0 +1,23 @@
+<h2>➕ Registrar Nueva Mascota</h2>
+
+<form (ngSubmit)="registrarMascota()" #formMascota="ngForm">
+  <label>Nombre:</label>
+  <input type="text" [(ngModel)]="nuevaMascota.nombre" name="nombre" required>
+
+  <label>Especie:</label>
+  <input type="text" [(ngModel)]="nuevaMascota.especie" name="especie" required>
+
+  <label>Raza:</label>
+  <input type="text" [(ngModel)]="nuevaMascota.raza" name="raza">
+
+  <label>Edad:</label>
+  <input type="number" [(ngModel)]="nuevaMascota.edad" name="edad">
+
+  <label>Peso (kg):</label>
+  <input type="number" [(ngModel)]="nuevaMascota.peso" name="peso">
+
+  <label>Propietario:</label>
+  <input type="text" [(ngModel)]="nuevaMascota.propietario" name="propietario">
+
+  <button type="submit">Registrar Mascota</button>
+</form>

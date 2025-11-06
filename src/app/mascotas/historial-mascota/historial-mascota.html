@@ -1,0 +1,39 @@
+<div class="contenedor">
+  <h2>📖 Historial de Atención de Mascotas</h2>
+
+  <label for="mascota">Selecciona una mascota:</label>
+  <select id="mascota" [(ngModel)]="idSeleccionado">
+    <option [value]="null">-- Selecciona --</option>
+    <option *ngFor="let mascota of mascotas" [value]="mascota.id">
+      {{ mascota.nombre }} ({{ mascota.propietario }})
+    </option>
+  </select>
+
+  <button (click)="verHistorial()" [disabled]="!idSeleccionado">Ver historial</button>
+
+  <div *ngIf="citas.length > 0; else sinCitas" class="tabla">
+    <h3>Historial de citas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Motivo</th>
+          <th>Veterinario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <td>{{ cita.fecha }}</td>
+          <td>{{ cita.hora }}</td>
+          <td>{{ cita.motivo }}</td>
+          <td>{{ cita.veterinario }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #sinCitas>
+    <p *ngIf="idSeleccionado">⚠️ No hay citas registradas para esta mascota.</p>
+  </ng-template>
+</div>

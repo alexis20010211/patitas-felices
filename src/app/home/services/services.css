@@ -1,0 +1,28 @@
+.services {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.services h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.service-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 150px;
+}
+
+.service-item .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}

@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f9f9;
+  margin: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "@coreui/coreui/dist/css/coreui.min.css";
+@import "@coreui/icons/css/all.min.css";

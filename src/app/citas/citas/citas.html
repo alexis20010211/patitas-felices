@@ -1,0 +1,27 @@
+<p>citas works!</p>
+<div class="contenedor">
+  <h2>📅 Citas Registradas</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Motivo</th>
+        <th>Mascota</th>
+        <th>Veterinario</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas">
+        <td>{{ cita.fecha }}</td>
+        <td>{{ cita.hora }}</td>
+        <td>{{ cita.motivo }}</td>
+        <td>{{ getNombreMascota(cita.mascotaId) }}</td>
+        <td>{{ cita.veterinario }}</td>
+        <td><button (click)="eliminarCita(cita.id)">🗑 Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

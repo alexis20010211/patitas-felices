@@ -1,0 +1,66 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <a routerLink="/home" class="logo">
+      <img src="assets/logo.png" alt="Patitas Felices">
+      <span>Clínica Veterinaria Especializada</span>
+    </a>
+
+    <!-- Menú hamburguesa móvil -->
+    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+    <!-- Menú principal -->
+    <ul class="nav-links" [class.show]="showMenu">
+      <!-- Nosotros -->
+      <li>
+        <div class="dropdown-header">
+          <span>Nosotros</span>
+          <button class="toggle-btn" (click)="toggleDropdown('nosotros')">
+            {{ showNosotros ? '−' : '+' }}
+          </button>
+        </div>
+        <ul class="dropdown-menu" [class.show]="showNosotros">
+          <li><a routerLink="/home#about-us">Quiénes somos</a></li>
+          <li><a routerLink="/home#team">Nuestro equipo</a></li>
+        </ul>
+      </li>
+
+      <!-- Servicios -->
+      <li>
+        <div class="dropdown-header">
+          <span>Servicios</span>
+          <button class="toggle-btn" (click)="toggleDropdown('servicios')">
+            {{ showServicios ? '−' : '+' }}
+          </button>
+        </div>
+        <ul class="dropdown-menu" [class.show]="showServicios">
+          <li><a routerLink="/home#consultas">Consultas</a></li>
+          <li><a routerLink="/home#grooming">Grooming</a></li>
+          <li><a routerLink="/home#vacunas">Vacunas</a></li>
+        </ul>
+      </li>
+
+      <!-- Clínica Veterinaria -->
+      <li>
+        <div class="dropdown-header">
+          <span>Clínica Veterinaria</span>
+          <button class="toggle-btn" (click)="toggleDropdown('clinica')">
+            {{ showClinica ? '−' : '+' }}
+          </button>
+        </div>
+        <ul class="dropdown-menu" [class.show]="showClinica">
+          <li><a routerLink="/home#equipamiento">Equipamiento</a></li>
+          <li><a routerLink="/home#infraestructura">Infraestructura</a></li>
+        </ul>
+      </li>
+
+      <!-- Login / Logout dinámico -->
+      <li *ngIf="!auth.isLoggedIn()">
+        <a routerLink="/auth/login" class="login-btn">Login</a>
+      </li>
+      <li *ngIf="auth.isLoggedIn()">
+        <button class="login-btn" (click)="logout()">Logout</button>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,26 @@
+<div class="panel-container">
+
+  <h2 class="title">Panel de Control Veterinario</h2>
+
+  <!-- FORM ANUNCIOS -->
+  <form [formGroup]="announcementForm" (ngSubmit)="onSubmit()" class="announcement-form">
+    <input type="text" formControlName="title" placeholder="Título del anuncio" class="input-field" />
+    <textarea formControlName="message" placeholder="Mensaje del anuncio" class="textarea-field"></textarea>
+    <button type="submit" class="btn-primary">📢 Publicar Anuncio</button>
+  </form>
+
+  <!-- ACCIONES DEMO -->
+  <div class="actions">
+    <button class="btn-secondary" (click)="simulateNewMascota()">🐶 + Mascota Demo</button>
+    <button class="btn-secondary" (click)="simulateIngreso()">🏥 + Ingreso Demo</button>
+  </div>
+
+  <!-- EVENTOS -->
+  <div class="log-section">
+    <h3 class="subtitle">📌 Eventos Recientes</h3>
+    <ul class="log-list">
+      <li *ngFor="let e of events">✅ {{ e }}</li>
+    </ul>
+  </div>
+
+</div>

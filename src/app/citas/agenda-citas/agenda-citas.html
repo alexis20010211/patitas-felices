@@ -1,0 +1,27 @@
+<div class="formulario">
+  <h2>🩺 Agendar Nueva Cita</h2>
+
+  <form [formGroup]="formCita" (ngSubmit)="agendarCita()">
+    <label>Fecha:</label>
+    <input type="date" formControlName="fecha" />
+
+    <label>Hora:</label>
+    <input type="time" formControlName="hora" />
+
+    <label>Motivo:</label>
+    <input type="text" formControlName="motivo" placeholder="Motivo de la cita" />
+
+    <label>Veterinario:</label>
+    <input type="text" formControlName="veterinario" placeholder="Nombre del veterinario" />
+
+    <label>Mascota:</label>
+    <select formControlName="mascotaId">
+      <option [value]="null">-- Selecciona --</option>
+      <option *ngFor="let mascota of mascotas" [value]="mascota.id">
+        {{ mascota.nombre }} ({{ mascota.propietario }})
+      </option>
+    </select>
+
+    <button type="submit" [disabled]="formCita.invalid">Agendar</button>
+  </form>
+</div>

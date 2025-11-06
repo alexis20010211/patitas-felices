@@ -1,0 +1,21 @@
+.sidebar {
+  width: 240px;
+  background-color: #111;
+  padding: 20px;
+}
+
+.logo {
+  color: #ff7a00;
+}
+
+.menu li {
+  list-style: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.menu li:hover,
+.menu li.active {
+  background-color: #ff7a00;
+  color: #111;
+}

@@ -1,0 +1,17 @@
+.admin-container {
+  display: flex;
+  height: 100vh;
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+.admin-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  padding: 20px;
+  overflow-y: auto;
+}

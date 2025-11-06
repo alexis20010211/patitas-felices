@@ -1,0 +1,28 @@
+<div class="contenedor">
+  <h2>🐶 Lista de Mascotas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especie</th>
+        <th>Propietario</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mascota of mascotas">
+        <td>{{ mascota.id }}</td>
+        <td>{{ mascota.nombre }}</td>
+        <td>{{ mascota.especie }}</td>
+        <td>{{ mascota.propietario }}</td>
+        <td>
+          <!-- Botón para ver historial -->
+          <button (click)="verHistorial(mascota.id)">📖 Historial</button>
+          <!-- Botón para eliminar -->
+          <button (click)="eliminarMascota(mascota.id)">🗑 Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

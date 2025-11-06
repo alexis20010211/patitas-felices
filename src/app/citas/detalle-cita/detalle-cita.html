@@ -1,0 +1,18 @@
+<div class="contenedor">
+  <h2>Detalle de la Cita</h2>
+
+  <!-- Si no hay cita encontrada -->
+  <div *ngIf="!cita">
+    ⚠️ Cita no encontrada.
+  </div>
+
+  <!-- Mostrar detalles si existe la cita -->
+  <div *ngIf="cita">
+    <p><strong>Mascota:</strong> {{ nombreMascota }}</p>
+    <p><strong>Fecha:</strong> {{ cita.fecha }} a las {{ cita.hora }}</p>
+    <p><strong>Motivo:</strong> {{ cita.motivo }}</p>
+    <p><strong>Veterinario:</strong> {{ cita.veterinario }}</p>
+
+    <button (click)="volver()">⬅️ Volver a la lista de citas</button>
+  </div>
+</div>

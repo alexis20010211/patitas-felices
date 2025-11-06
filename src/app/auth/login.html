@@ -1,0 +1,26 @@
+<div class="login-wrapper">
+  <!-- Canvas de fondo dinámico -->
+  <canvas #bgCanvas class="bg-canvas"></canvas>
+
+  <!-- Tarjeta centrada del login -->
+  <div class="login-card">
+    <h2>Iniciar Sesión</h2>
+    <p class="subtitle">Bienvenido a Patitas Felices</p>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="input-group">
+        <input type="text" name="username" placeholder="Usuario" [(ngModel)]="username" required />
+        <label>Usuario</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" name="password" placeholder="Contraseña" [(ngModel)]="password" required />
+        <label>Contraseña</label>
+      </div>
+
+      <p class="error" *ngIf="error">{{ error }}</p>
+
+      <button type="submit" class="login-btn">Ingresar</button>
+    </form>
+  </div>
+</div>

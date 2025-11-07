@@ -1,0 +1,49 @@
+<div class="admin-usuarios-container">
+  <h2>Gestión de Usuarios</h2>
+
+  <label>Filtrar por rol:</label>
+  <select [(ngModel)]="filtroRol">
+    <option value="TODOS">Todos</option>
+    <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of usuariosFiltrados">
+        <td>{{ u.id }}</td>
+        <td *ngIf="!editUsuario || editUsuario.id !== u.id">{{ u.nombre }}</td>
+        <td *ngIf="editUsuario && editUsuario.id === u.id">
+          <input [(ngModel)]="editUsuario.nombre" />
+        </td>
+
+        <td *ngIf="!editUsuario || editUsuario.id !== u.id">{{ u.email }}</td>
+        <td *ngIf="editUsuario && editUsuario.id === u.id">
+          <input [(ngModel)]="editUsuario.email" />
+        </td>
+
+        <td *ngIf="!editUsuario || editUsuario.id !== u.id">{{ u.rol }}</td>
+        <td *ngIf="editUsuario && editUsuario.id === u.id">
+          <select [(ngModel)]="editUsuario.rol">
+            <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+          </select>
+        </td>
+
+        <td>
+          <button *ngIf="!editUsuario || editUsuario.id !== u.id" (click)="iniciarEdicion(u)">✏️ Editar</button>
+          <button *ngIf="!editUsuario || editUsuario.id !== u.id" (click)="eliminarUsuario(u.id)">🗑 Eliminar</button>
+          <button *ngIf="editUsuario && editUsuario.id === u.id" (click)="guardarEdicion()">💾 Guardar</button>
+          <button *ngIf="editUsuario && editUsuario.id === u.id" (click)="cancelarEdicion()">❌ Cancelar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,38 +1,18 @@
-<div class="usuarios-wrapper">
-  <h2>Gestión de Usuarios</h2>
+<div class="usuarios-container">
+  <h2>Usuarios</h2>
 
-  <!-- Filtro por rol -->
-  <div class="filtro">
-    <label>Filtrar por rol:</label>
-    <select [(ngModel)]="filtroRol">
-      <option value="TODOS">Todos</option>
-      <option value="ADMIN">ADMIN</option>
-      <option value="VETERINARIO">VETERINARIO</option>
-      <option value="CLIENTE">CLIENTE</option>
-    </select>
-  </div>
+  <label>Filtrar por rol:</label>
+  <select [(ngModel)]="filtroRol">
+    <option value="TODOS">Todos</option>
+    <option value="ADMIN">ADMIN</option>
+    <option value="VETERINARIO">VETERINARIO</option>
+    <option value="CLIENTE">CLIENTE</option>
+  </select>
 
-  <!-- Tabla de usuarios -->
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Rol</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let usuario of usuariosFiltrados">
-        <td>{{ usuario.id }}</td>
-        <td>{{ usuario.nombre }}</td>
-        <td>{{ usuario.email }}</td>
-        <td>{{ usuario.rol }}</td>
-        <td>
-          <button (click)="eliminarUsuario(usuario.id)">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <ul>
+    <li *ngFor="let u of usuariosFiltrados">
+      {{ u.id }} - {{ u.nombre }} ({{ u.rol }}) - {{ u.email }}
+      <button (click)="eliminarUsuario(u.id)">Eliminar</button>
+    </li>
+  </ul>
 </div>

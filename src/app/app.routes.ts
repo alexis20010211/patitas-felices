@@ -6,7 +6,7 @@ import { RegistroMascotaComponent } from '../app/mascotas/registro-mascota/regis
 import { HistorialMascotaComponent } from '../app/mascotas/historial-mascota/historial-mascota';
 
 // 📅 Citas
-import { CitasComponent } from '../app/citas/citas/citas';
+import { AdminCitasComponent } from '../app/admin/admin-citas/admin-citas';
 import { AgendaCitaComponent } from '../app/citas/agenda-citas/agenda-citas';
 import { DetalleCitaComponent } from '../app/citas/detalle-cita/detalle-cita';
 
@@ -20,6 +20,7 @@ import { LoginComponent } from '../app/auth/login';
 import { AdminLayoutComponent } from '../app/admin/admin-layout/admin-layout';
 import { AdminDashboardComponent } from '../app/admin/admin-dashboard/admin-dashboard';
 import { AdminPanelComponent } from '../app/admin/admin-panel/admin-panel';
+import { AdminUsuariosComponent } from '../app/admin/admin-usuarios/admin-usuarios';
 
 // Cliente + Usuarios
 import { UsuariosComponent } from '../app/usuarios/usuarios/usuarios';
@@ -31,14 +32,10 @@ import { Role } from '../app/auth/role.enum';
 // Cliente Components
 import { ClientePanelComponent } from '../app/cliente/cliente-panel/cliente-panel';
 import { ClienteDashboardComponent } from '../app/cliente/cliente-dashboard/cliente-dashboard';
-import { ClienteSidebarComponent } from '../app/cliente/cliente-sidebar/cliente-sidebar';
-import { ClienteHeaderComponent } from '../app/cliente/cliente-header/cliente-header';
 
 // Veterinario Components
 import { VeterinarioPanelComponent } from '../app/veterinario/veterinario-panel/veterinario-panel';
 import { VeterinarioDashboardComponent } from '../app/veterinario/veterinario-dashboard/veterinario-dashboard';
-import { VeterinarioSidebarComponent } from '../app/veterinario/veterinario-sidebar/veterinario-sidebar';
-import { VeterinarioHeaderComponent } from '../app/veterinario/veterinario-header/veterinario-header';
 
 // Servicios
 import { ServicesComponent } from '../app/home/services/services';
@@ -74,12 +71,13 @@ export const appRoutes: Routes = [
       { path: 'mascotas/:id/historial', component: HistorialMascotaComponent },
 
       // 📅 Citas
-      { path: 'citas', component: CitasComponent },
-      { path: 'agenda-citas', component: AgendaCitaComponent },
+      { path: 'citas', component: AdminCitasComponent },
+      { path: 'citas/nueva', component: AgendaCitaComponent },
+      { path: 'citas/editar/:id', component: AgendaCitaComponent },
       { path: 'detalle-cita/:id', component: DetalleCitaComponent },
 
       // 👥 Usuarios
-      { path: 'usuarios', component: UsuariosComponent },
+      { path: 'usuarios', component: AdminUsuariosComponent },
 
       // 🧪 Servicios
       { path: 'servicios', component: ServicesComponent },
@@ -95,7 +93,7 @@ export const appRoutes: Routes = [
   // ==========================
   {
     path: 'veterinario',
-    component: VeterinarioPanelComponent, // Layout con header + sidebar
+    component: VeterinarioPanelComponent,
     canActivate: [AuthGuard],
     data: { expectedRole: Role.Veterinario },
     children: [
@@ -119,7 +117,7 @@ export const appRoutes: Routes = [
   // ==========================
   {
     path: 'cliente',
-    component: ClientePanelComponent, // Layout cliente con header + sidebar
+    component: ClientePanelComponent,
     canActivate: [AuthGuard],
     data: { expectedRole: Role.Cliente },
     children: [
@@ -133,8 +131,9 @@ export const appRoutes: Routes = [
       { path: 'mascotas/:id/historial', component: HistorialMascotaComponent },
 
       // 📅 Citas
-      { path: 'citas', component: CitasComponent },
-      { path: 'agenda-citas', component: AgendaCitaComponent },
+      { path: 'citas', component: AdminCitasComponent },
+      { path: 'citas/nueva', component: AgendaCitaComponent },
+      { path: 'citas/editar/:id', component: AgendaCitaComponent },
       { path: 'detalle-cita/:id', component: DetalleCitaComponent },
     ]
   },

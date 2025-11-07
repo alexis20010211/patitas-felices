@@ -3,15 +3,53 @@
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
-  color: #ffffff;
+  align-items: center;
+  color: #f0e9e9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.logout-btn {
-  background: #ff7a00;
+
+/* Sidebar toggle */
+.sidebar-toggle {
+  background: #f39c12;
   color: #000;
+  border: none;
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 1.2rem;
+  margin-right: 12px;
+}
+.sidebar-toggle:hover {
+  background: #e67e22;
+}
+
+/* Usuario */
+.header-left .user-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Logout */
+.logout-btn {
+  background: #f39c12;
+  color: #000;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
 }
 .logout-btn:hover {
-  opacity: .8;
+  background: #e67e22;
+  color: #e4d2d2;
+}
+
+/* Adaptativo móvil */
+@media(max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-right {
+    margin-top: 8px;
+  }
 }

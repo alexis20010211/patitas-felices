@@ -1,45 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Usuario } from '../models/usuario.model';
 
-export interface Usuario {
-  id: number;
-  nombre: string;
-  email: string;
-  rol: string;
-}
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class UsuarioService {
+  private usuarios: Usuario[] = [
+    { id: 1, nombre: 'Carlos Pérez', email: 'admin@patitasfelices.com', rol: 'ADMIN' },
+    { id: 2, nombre: 'Lucía Torres', email: 'vet@patitasfelices.com', rol: 'VETERINARIO' },
+    { id: 3, nombre: 'Ana Gómez', email: 'cliente1@patitasfelices.com', rol: 'CLIENTE' },
+    { id: 4, nombre: 'Jorge Díaz', email: 'cliente2@patitasfelices.com', rol: 'CLIENTE' }
+  ];
 
-  private apiUrl = 'http://localhost:8080/api/usuarios'; // ✅ Ajusta la URL si es necesario
-
-  constructor(private http: HttpClient) {}
-
-  // ✅ Obtener todos los usuarios
-  getUsuarios(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.apiUrl);
+  getUsuarios(): Usuario[] {
+    return this.usuarios;
   }
 
-  // ✅ Obtener usuario por ID
-  getUsuarioById(id: number): Observable<Usuario> {
-    return this.http.get<Usuario>(`${this.apiUrl}/${id}`);
+  addUsuario(usuario: Usuario): void {
+    usuario.id = this.usuarios.length + 1;
+    this.usuarios.push(usuario);
   }
 
-  // ✅ Registrar nuevo usuario
-  crearUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.apiUrl, usuario);
+  updateUsuario(id: number, usuarioActualizado: Usuario): void {
+    const index = this.usuarios.findIndex(u => u.id === id);
+    if (index !== -1) this.usuarios[index] = usuarioActualizado;
   }
 
-  // ✅ Actualizar usuario
-  actualizarUsuario(id: number, usuario: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>(`${this.apiUrl}/${id}`, usuario);
+  deleteUsuario(id: number): void {
+    this.usuarios = this.usuarios.filter(u => u.id !== id);
   }
 
-  // ✅ Eliminar usuario
-  eliminarUsuario(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  filterByRol(rol: string): Usuario[] {
+    if (rol === 'TODOS') return this.usuarios;
+    return this.usuarios.filter(u => u.rol === rol);
   }
 }

@@ -1,0 +1,31 @@
+<div class="contenedor">
+  <h2>📅 Citas Registradas</h2>
+
+  <button class="btn-add" (click)="agregarCita()">➕ Agregar Cita</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Motivo</th>
+        <th>Mascota</th>
+        <th>Veterinario</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas">
+        <td>{{ cita.fecha }}</td>
+        <td>{{ cita.hora }}</td>
+        <td>{{ cita.motivo }}</td>
+        <td>{{ getNombreMascota(cita.mascotaId) }}</td>
+        <td>{{ cita.veterinario }}</td>
+        <td>
+          <button class="btn-edit" (click)="editarCita(cita)">✏️ Editar</button>
+          <button class="btn-delete" (click)="eliminarCita(cita.id)">🗑 Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -2,20 +2,48 @@
   width: 240px;
   background-color: #111;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .logo {
   color: #ff7a00;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu {
+  padding: 0;
+  margin: 0;
+  flex: 1;
 }
 
 .menu li {
   list-style: none;
-  padding: 12px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
   cursor: pointer;
   border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  font-size: 15px;
 }
-.menu li:hover,
+
+.menu li:hover {
+  background-color: #ff7a00;
+  color: #111;
+  transform: translateX(4px);
+}
+
 .menu li.active {
   background-color: #ff7a00;
   color: #111;
+  border-left: 4px solid #ece8e8;
+  font-weight: 600;
+}
+
+.menu li:last-child {
+  margin-bottom: 0;
 }

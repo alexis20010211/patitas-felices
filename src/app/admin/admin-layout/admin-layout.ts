@@ -10,4 +10,10 @@ import { AdminHeaderComponent } from '../admin-header/admin-header';
   templateUrl: './admin-layout.html',
   styleUrls: ['./admin-layout.css']
 })
-export class AdminLayoutComponent {}
+export class AdminLayoutComponent {
+  sidebarCollapsed: boolean = false;
+
+  toggleSidebar() {
+    this.sidebarCollapsed = !this.sidebarCollapsed;
+  }
+}

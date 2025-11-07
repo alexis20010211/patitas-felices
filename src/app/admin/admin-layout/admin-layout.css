@@ -3,15 +3,35 @@
   height: 100vh;
   background-color: #0d0d0d;
   color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Colapsado */
+.admin-container.collapsed app-admin-sidebar {
+  width: 60px;
 }
 
 .admin-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  transition: margin-left 0.3s ease;
 }
 
 .content {
   padding: 20px;
   overflow-y: auto;
+  min-height: calc(100vh - 60px);
+  background-color: #1a1a1a;
+}
+
+/* Adaptativo móvil */
+@media(max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+  }
+
+  .admin-content {
+    margin-left: 0 !important;
+  }
 }

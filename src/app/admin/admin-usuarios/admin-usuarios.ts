@@ -5,15 +5,17 @@ import { UsuarioService } from '../../shared/services/usuario.service';
 import { Usuario, Rol } from '../../shared/models/usuario.model';
 
 @Component({
-  selector: 'app-usuarios',
+  selector: 'app-admin-usuarios',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './usuarios.html',
-  styleUrls: ['./usuarios.css']
+  templateUrl: './admin-usuarios.html',
+  styleUrls: ['./admin-usuarios.css']
 })
-export class UsuariosComponent implements OnInit {
+export class AdminUsuariosComponent implements OnInit {
   usuarios: Usuario[] = [];
   filtroRol: string = 'TODOS';
+  roles: Rol[] = ['ADMIN', 'VETERINARIO', 'CLIENTE'];
+  editUsuario: Usuario | null = null;
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -32,5 +34,20 @@ export class UsuariosComponent implements OnInit {
   eliminarUsuario(id: number) {
     this.usuarioService.deleteUsuario(id);
     this.usuarios = this.usuarioService.getUsuarios();
+  }
+
+  iniciarEdicion(usuario: Usuario) {
+    this.editUsuario = { ...usuario };
+  }
+
+  guardarEdicion() {
+    if (!this.editUsuario) return;
+    this.usuarioService.updateUsuario(this.editUsuario.id, this.editUsuario);
+    this.editUsuario = null;
+    this.usuarios = this.usuarioService.getUsuarios();
+  }
+
+  cancelarEdicion() {
+    this.editUsuario = null;
   }
 }

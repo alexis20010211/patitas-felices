@@ -1,4 +1,10 @@
 <header class="header">
-  <span>👑 Administrador</span>
-  <button class="logout-btn">Cerrar Sesión</button>
+  <div class="header-left">
+    <button class="sidebar-toggle" (click)="onToggleSidebar()">☰</button>
+    <span class="user-name">👑 {{ userName }}</span>
+  </div>
+
+  <div class="header-right">
+    <button class="logout-btn" (click)="logout()">Cerrar Sesión</button>
+  </div>
 </header>

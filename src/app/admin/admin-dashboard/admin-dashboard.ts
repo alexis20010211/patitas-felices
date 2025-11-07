@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar';
-import { AdminService } from '../admin.service';
-import { Observable } from 'rxjs';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -29,6 +28,24 @@ export class AdminDashboardComponent implements OnInit {
     this.eventos$ = this.admin.getEventos();
   }
 
-  demoAddMascota(){ this.admin.addMascotaCount(1); this.admin.addEvento('Nueva mascota demo añadida'); }
-  demoAddIngreso(){ this.admin.addIngreso(150); this.admin.addEvento('Ingreso demo registrado'); }
+  // Funciones demo habilitadas
+  agregarMascota() {
+    this.admin.addMascotaCount(1);
+    this.admin.addEvento('Nueva mascota agregada');
+  }
+
+  agregarIngreso() {
+    this.admin.addIngreso(200);
+    this.admin.addEvento('Ingreso registrado');
+  }
+
+  agregarCita() {
+    this.admin.addCitaCount(1);
+    this.admin.addEvento('Nueva cita registrada');
+  }
+
+  agregarCliente() {
+    this.admin.addClienteCount(1);
+    this.admin.addEvento('Nuevo cliente agregado');
+  }
 }

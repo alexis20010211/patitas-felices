@@ -1,8 +1,8 @@
-<div class="admin-container">
+<div class="admin-container" [class.collapsed]="sidebarCollapsed">
   <app-admin-sidebar></app-admin-sidebar>
 
   <div class="admin-content">
-    <app-admin-header></app-admin-header>
+    <app-admin-header (toggleSidebar)="toggleSidebar()"></app-admin-header>
 
     <main class="content">
       <router-outlet></router-outlet>

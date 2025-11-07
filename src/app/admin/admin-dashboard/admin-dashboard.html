@@ -7,7 +7,7 @@
 
   <!-- KPIs Cards -->
   <div class="cards-container">
-    <div class="card kpi-card bg-lightblue">
+    <div class="card kpi-card bg-orange">
       <div class="card-icon">🐶</div>
       <div class="card-info">
         <h3>{{ totalMascotas$ | async }}</h3>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="card kpi-card bg-lightgreen">
+    <div class="card kpi-card bg-black">
       <div class="card-icon">💰</div>
       <div class="card-info">
         <h3>S/ {{ ingresosHoy$ | async }}</h3>
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="card kpi-card bg-lightorange">
+    <div class="card kpi-card bg-orange">
       <div class="card-icon">📅</div>
       <div class="card-info">
         <h3>{{ citasHoy$ | async }}</h3>
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="card kpi-card bg-lightpurple">
+    <div class="card kpi-card bg-black">
       <div class="card-icon">👥</div>
       <div class="card-info">
         <h3>{{ clientesActivos$ | async }}</h3>
@@ -50,7 +50,9 @@
 
   <!-- Acciones -->
   <div class="actions">
-    <button class="btn btn-add-mascota" (click)="demoAddMascota()">Agregar Mascota Demo</button>
-    <button class="btn btn-add-ingreso" (click)="demoAddIngreso()">Agregar Ingreso Demo</button>
+    <button class="btn btn-orange" (click)="agregarMascota()">Agregar Mascota</button>
+    <button class="btn btn-black" (click)="agregarIngreso()">Agregar Ingreso</button>
+    <button class="btn btn-orange" (click)="agregarCita()">Agregar Cita</button>
+    <button class="btn btn-black" (click)="agregarCliente()">Agregar Cliente</button>
   </div>
 </section>

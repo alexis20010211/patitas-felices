@@ -1,7 +1,7 @@
 /* Contenedor principal */
 .dashboard {
   padding: 2rem;
-  background-color: #f5f6fa;
+  background-color: #ecebe9;
   color: #333;
   min-height: calc(100vh - 80px);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,7 +17,7 @@
   font-weight: 600;
 }
 .dashboard-subtitle {
-  color: #777;
+  color: #555;
   font-size: 1rem;
 }
 
@@ -35,12 +35,12 @@
   align-items: center;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .kpi-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 .card-icon {
   font-size: 2.8rem;
@@ -58,10 +58,8 @@
 }
 
 /* Card Colors */
-.bg-lightblue { background: #e7f0fd; color: #2a6fdb; }
-.bg-lightgreen { background: #e6f7ed; color: #27ae60; }
-.bg-lightorange { background: #fff4e6; color: #f39c12; }
-.bg-lightpurple { background: #f3eaff; color: #8e44ad; }
+.bg-orange { background: #f39c12; color: #fff; }
+.bg-black { background: #2c3e50; color: #fff; }
 
 /* Eventos Recientes */
 .events-section {
@@ -82,7 +80,7 @@
 }
 .events-list li {
   padding: 0.6rem 1rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #ede2e2;
   font-size: 0.95rem;
   color: #555;
 }
@@ -104,28 +102,13 @@
   transition: background 0.2s;
   margin-left: 0.8rem;
 }
-.btn-add-mascota {
-  background-color: #2ecc71;
-  color: white;
-}
-.btn-add-mascota:hover {
-  background-color: #27ae60;
-}
-.btn-add-ingreso {
-  background-color: #3498db;
-  color: white;
-}
-.btn-add-ingreso:hover {
-  background-color: #2980b9;
-}
+.btn-orange { background-color: #f39c12; color: rgb(228, 209, 209); }
+.btn-orange:hover { background-color: #e67e22; }
+.btn-black { background-color: #2c3e50; color: rgb(248, 233, 233); }
+.btn-black:hover { background-color: #34495e; }
 
 /* Adaptativo móvil */
 @media(max-width: 600px) {
-  .actions {
-    text-align: center;
-  }
-  .actions .btn {
-    width: 100%;
-    margin: 0.4rem 0;
-  }
+  .actions { text-align: center; }
+  .actions .btn { width: 100%; margin: 0.4rem 0; }
 }

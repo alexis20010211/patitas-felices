@@ -24,7 +24,7 @@
 .login-card {
   position: relative;
   z-index: 10;
-  background: rgba(24, 193, 80, 0.95);
+  background: #13866d;
   padding: 3rem 2.5rem; /* más padding */
   border-radius: 16px;  /* bordes más suaves */
   width: 420px;          /* más ancho */

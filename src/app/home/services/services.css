@@ -16,10 +16,11 @@
 }
 
 .service-item {
-  background-color: #a43b1e;
+  background-color: #13866d;
   padding: 20px;
   border-radius: 10px;
   width: 150px;
+  color: #fff; /* Texto blanco */
 }
 
 .service-item .icon {

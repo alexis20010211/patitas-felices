@@ -9,7 +9,7 @@
 }
 
 .vet-header button {
-  background-color: #FF8C00;
+  background-color: #31f00b;
   color: #fff;
   border: none;
   padding: 5px 12px;
@@ -18,5 +18,5 @@
 }
 
 .vet-header button:hover {
-  background-color: #ff9500;
+  background-color: #0fda1a;
 }

@@ -1,6 +1,6 @@
 .contenedor {
   padding: 20px;
-  background: #1c1a17;
+  background: #32ca03;
   border-radius: 10px;
 }
 
@@ -16,7 +16,7 @@ h2, h3 {
 
 .citas-table th, .citas-table td {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #0ec917d8;
   text-align: left;
 }
 

@@ -1,0 +1,39 @@
+<div class="report-container">
+
+  <h1>📊 Reportes Generales</h1>
+
+  <div class="stats-cards">
+    <div class="card">
+      <h2>Total Mascotas</h2>
+      <p>{{ totalMascotas }}</p>
+    </div>
+
+    <div class="card">
+      <h2>Citas Pendientes</h2>
+      <p>{{ citasPendientes }}</p>
+    </div>
+
+    <div class="card">
+      <h2>Ingresos del Mes</h2>
+      <p>S/ {{ ingresosMes }}</p>
+    </div>
+  </div>
+
+  <h2 class="subtitle">📅 Citas por Estado</h2>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Estado</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estado of citasPorEstado">
+        <td>{{ estado.estado }}</td>
+        <td>{{ estado.cantidad }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

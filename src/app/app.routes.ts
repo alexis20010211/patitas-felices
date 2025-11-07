@@ -21,6 +21,7 @@ import { AdminLayoutComponent } from '../app/admin/admin-layout/admin-layout';
 import { AdminDashboardComponent } from '../app/admin/admin-dashboard/admin-dashboard';
 import { AdminPanelComponent } from '../app/admin/admin-panel/admin-panel';
 import { AdminUsuariosComponent } from '../app/admin/admin-usuarios/admin-usuarios';
+import { AdminReportesComponent } from '../app/admin/admin-reportes/admin-reportes'; // ✅ NUEVO
 
 // Cliente + Usuarios
 import { UsuariosComponent } from '../app/usuarios/usuarios/usuarios';
@@ -42,12 +43,8 @@ import { ServicesComponent } from '../app/home/services/services';
 import { SpecialtiesComponent } from '../app/home/specialties/specialties';
 
 export const appRoutes: Routes = [
-
-  // Ruta inicial
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-
-  // Auth
   { path: 'auth/login', component: LoginComponent },
 
   // ==========================
@@ -76,8 +73,11 @@ export const appRoutes: Routes = [
       { path: 'citas/editar/:id', component: AgendaCitaComponent },
       { path: 'detalle-cita/:id', component: DetalleCitaComponent },
 
-      // 👥 Usuarios
+      // 👥 Gestión de Usuarios
       { path: 'usuarios', component: AdminUsuariosComponent },
+
+      // 📊 Reportes ✅ NUEVO
+      { path: 'reportes', component: AdminReportesComponent },
 
       // 🧪 Servicios
       { path: 'servicios', component: ServicesComponent },
@@ -100,13 +100,11 @@ export const appRoutes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: VeterinarioDashboardComponent },
 
-      // 🐶 Mascotas
       { path: 'mascotas', component: MascotasComponent },
       { path: 'registro-mascota', component: RegistroMascotaComponent },
       { path: 'registro-mascota/:id', component: RegistroMascotaComponent },
       { path: 'mascotas/:id/historial', component: HistorialMascotaComponent },
 
-      // 📅 Citas
       { path: 'agenda-citas', component: AgendaCitaComponent },
       { path: 'detalle-cita/:id', component: DetalleCitaComponent },
     ]
@@ -124,13 +122,11 @@ export const appRoutes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: ClienteDashboardComponent },
 
-      // 🐶 Mascotas
       { path: 'mascotas', component: MascotasComponent },
       { path: 'registro-mascota', component: RegistroMascotaComponent },
       { path: 'registro-mascota/:id', component: RegistroMascotaComponent },
       { path: 'mascotas/:id/historial', component: HistorialMascotaComponent },
 
-      // 📅 Citas
       { path: 'citas', component: AdminCitasComponent },
       { path: 'citas/nueva', component: AgendaCitaComponent },
       { path: 'citas/editar/:id', component: AgendaCitaComponent },
@@ -138,6 +134,5 @@ export const appRoutes: Routes = [
     ]
   },
 
-  // Ruta comodín
   { path: '**', redirectTo: 'home' }
 ];

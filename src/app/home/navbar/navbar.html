@@ -1,16 +1,17 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <!-- Logo -->
+    <!-- LOGO -->
     <a routerLink="/home" class="logo">
       <img src="assets/logo.png" alt="Patitas Felices">
       <span>Clínica Veterinaria Especializada</span>
     </a>
 
-    <!-- Menú hamburguesa móvil -->
+    <!-- MENÚ HAMBURGUESA (solo móvil) -->
     <button class="menu-toggle" (click)="toggleMenu()">☰</button>
 
-    <!-- Menú principal -->
+    <!-- MENÚ PRINCIPAL -->
     <ul class="nav-links" [class.show]="showMenu">
+      
       <!-- Nosotros -->
       <li>
         <div class="dropdown-header">

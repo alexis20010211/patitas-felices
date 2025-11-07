@@ -1,22 +1,81 @@
+/* HERO SECTION */
 .hero {
-  background: url('/assets/slide1.JPEG') no-repeat center center;
-  background-size: cover;
-  color: rgb(15, 12, 12);
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 100px 20px;
+  color: white;
+  overflow: hidden;
 }
 
+/* Imagen de fondo difuminada */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/imagen-hero.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(5px) brightness(0.6); /* difuminado + oscurecido */
+  z-index: 0;
+}
+
+/* Contenido principal sobre la capa difuminada */
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+/* Textos */
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+/*  BOTÓN */
 .hero button {
-  margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 6px;
-  background-color: #3498db;
+  border-radius: 30px;
+  background-color: #16a085; /* mismo color del navbar */
   color: white;
-  cursor: pointer;
   font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .hero button:hover {
-  background-color: #2980b9;
+  background-color: #13866d;
+  transform: scale(1.05);
 }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    font-size: 0.9rem;
+  }
+}
+

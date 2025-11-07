@@ -1,20 +1,45 @@
+/* 🐾 SECCIÓN DE ESPECIALIDADES */
 .specialties {
   background-color: #f9f9f9;
-  padding: 50px 20px;
+  padding: 50px 20px 60px; /* menos espacio arriba, más abajo */
   text-align: center;
 }
 
+/* 🔠 Título */
+.specialties h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 50px; /* separamos más del listado */
+  margin-top: 0; /* eliminamos espacio extra superior */
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Contenedor de especialidades */
 .specialties ul {
   list-style: none;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
+/* Cada especialidad como un botón */
 .specialties li {
-  background-color: #3498db;
+  background-color: #16a085; /* mismo color del navbar */
   color: white;
-  padding: 10px 15px;
-  border-radius: 6px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover */
+.specialties li:hover {
+  background-color: #13866d;
+  transform: scale(1.05);
 }

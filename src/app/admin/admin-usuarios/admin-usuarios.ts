@@ -17,9 +17,17 @@ export class AdminUsuariosComponent implements OnInit {
   roles: Rol[] = ['ADMIN', 'VETERINARIO', 'CLIENTE'];
   editUsuario: Usuario | null = null;
 
+  // ✅ Modal control
+  showModalCrear: boolean = false;
+  nuevoUsuario: Usuario = { id: 0, nombre: '', email: '', rol: 'CLIENTE' };
+
   constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
+    this.cargarUsuarios();
+  }
+
+  cargarUsuarios() {
     this.usuarios = this.usuarioService.getUsuarios();
   }
 
@@ -33,7 +41,7 @@ export class AdminUsuariosComponent implements OnInit {
 
   eliminarUsuario(id: number) {
     this.usuarioService.deleteUsuario(id);
-    this.usuarios = this.usuarioService.getUsuarios();
+    this.cargarUsuarios();
   }
 
   iniciarEdicion(usuario: Usuario) {
@@ -44,10 +52,28 @@ export class AdminUsuariosComponent implements OnInit {
     if (!this.editUsuario) return;
     this.usuarioService.updateUsuario(this.editUsuario.id, this.editUsuario);
     this.editUsuario = null;
-    this.usuarios = this.usuarioService.getUsuarios();
+    this.cargarUsuarios();
   }
 
   cancelarEdicion() {
     this.editUsuario = null;
+  }
+
+  // ✅ CREAR USUARIO
+  abrirModalCrear() {
+    this.showModalCrear = true;
+    this.nuevoUsuario = { id: 0, nombre: '', email: '', rol: 'CLIENTE' };
+  }
+
+  guardarNuevoUsuario() {
+    if (!this.nuevoUsuario.nombre || !this.nuevoUsuario.email) return;
+
+    this.usuarioService.createUsuario(this.nuevoUsuario);
+    this.showModalCrear = false;
+    this.cargarUsuarios();
+  }
+
+  cancelarNuevoUsuario() {
+    this.showModalCrear = false;
   }
 }

@@ -6,16 +6,19 @@
     <div class="card">
       <h2>Total Mascotas</h2>
       <p>{{ totalMascotas }}</p>
+      <button (click)="verMascotas()">Ver lista 🐶</button>
     </div>
 
     <div class="card">
       <h2>Citas Pendientes</h2>
       <p>{{ citasPendientes }}</p>
+      <button (click)="verCitasPendientes()">Ver citas 📅</button>
     </div>
 
     <div class="card">
       <h2>Ingresos del Mes</h2>
       <p>S/ {{ ingresosMes }}</p>
+      <button (click)="verIngresos()">Ver ingresos 💰</button>
     </div>
   </div>
 
@@ -26,12 +29,19 @@
       <tr>
         <th>Estado</th>
         <th>Cantidad</th>
+        <th>Acciones</th>
       </tr>
     </thead>
+
     <tbody>
       <tr *ngFor="let estado of citasPorEstado">
         <td>{{ estado.estado }}</td>
         <td>{{ estado.cantidad }}</td>
+        <td>
+          <button (click)="editarEstado(estado)">✏️ Editar</button>
+          <button (click)="eliminarEstado(estado)">🗑 Eliminar</button>
+          <button (click)="generarReporte(estado)">🖨 Reporte</button>
+        </td>
       </tr>
     </tbody>
   </table>

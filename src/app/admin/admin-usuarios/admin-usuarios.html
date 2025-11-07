@@ -1,6 +1,9 @@
 <div class="admin-usuarios-container">
   <h2>Gestión de Usuarios</h2>
 
+  <!-- ✅ Botón para agregar usuario -->
+  <button class="btn-agregar" (click)="abrirModalCrear()">➕ Agregar Usuario</button>
+
   <label>Filtrar por rol:</label>
   <select [(ngModel)]="filtroRol">
     <option value="TODOS">Todos</option>
@@ -20,6 +23,7 @@
     <tbody>
       <tr *ngFor="let u of usuariosFiltrados">
         <td>{{ u.id }}</td>
+
         <td *ngIf="!editUsuario || editUsuario.id !== u.id">{{ u.nombre }}</td>
         <td *ngIf="editUsuario && editUsuario.id === u.id">
           <input [(ngModel)]="editUsuario.nombre" />
@@ -46,4 +50,23 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- ✅ MODAL PARA CREAR USUARIO -->
+<div class="modal" *ngIf="showModalCrear">
+  <div class="modal-content">
+    <h3>Nuevo Usuario</h3>
+
+    <input placeholder="Nombre" [(ngModel)]="nuevoUsuario.nombre">
+    <input placeholder="Email" [(ngModel)]="nuevoUsuario.email">
+
+    <select [(ngModel)]="nuevoUsuario.rol">
+      <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+    </select>
+
+    <div class="modal-actions">
+      <button (click)="guardarNuevoUsuario()">Guardar</button>
+      <button (click)="cancelarNuevoUsuario()">Cancelar</button>
+    </div>
+  </div>
 </div>

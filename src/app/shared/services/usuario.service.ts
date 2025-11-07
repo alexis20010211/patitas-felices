@@ -14,8 +14,11 @@ export class UsuarioService {
     return this.usuarios;
   }
 
-  addUsuario(usuario: Usuario): void {
-    usuario.id = this.usuarios.length + 1;
+  // ✅ Método correcto que llama tu componente
+  createUsuario(usuario: Usuario): void {
+    usuario.id = this.usuarios.length > 0 
+      ? this.usuarios[this.usuarios.length - 1].id + 1 
+      : 1;
     this.usuarios.push(usuario);
   }
 

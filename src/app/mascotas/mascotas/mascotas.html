@@ -1,5 +1,9 @@
 <div class="contenedor">
-  <h2>🐶 Lista de Mascotas</h2>
+  <div class="header">
+    <h2>🐶 Lista de Mascotas</h2>
+    <button class="btn-agregar" (click)="agregarMascota()">➕ Agregar Mascota</button>
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -16,12 +20,14 @@
         <td>{{ mascota.nombre }}</td>
         <td>{{ mascota.especie }}</td>
         <td>{{ mascota.propietario }}</td>
-        <td>
-          <!-- Botón para ver historial -->
+        <td class="acciones">
           <button (click)="verHistorial(mascota.id)">📖 Historial</button>
-          <!-- Botón para eliminar -->
+          <button (click)="editarMascota(mascota)">✏️ Editar</button>
           <button (click)="eliminarMascota(mascota.id)">🗑 Eliminar</button>
         </td>
+      </tr>
+      <tr *ngIf="mascotas.length === 0">
+        <td colspan="5" class="empty">No hay mascotas registradas.</td>
       </tr>
     </tbody>
   </table>

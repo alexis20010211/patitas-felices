@@ -1,13 +1,12 @@
-/**
- * Modelo Mascota
- * Representa la información principal de una mascota en el sistema.
- */
+import { Cita } from './cita.model';
+
 export interface Mascota {
-  id: number;              // Identificador único
-  nombre: string;          // Nombre de la mascota
-  especie: string;         // Ejemplo: perro, gato, conejo
-  raza: string;            // Ejemplo: bulldog, persa
-  edad: number;            // Edad en años
-  peso: number;            // Peso en kg
-  propietario: string;     // Nombre del dueño
+  id: number;
+  nombre: string;
+  especie: string;
+  raza: string;
+  edad: number;
+  peso: number;
+  propietario: string;
+  historial?: Cita[]; // Historial de citas
 }

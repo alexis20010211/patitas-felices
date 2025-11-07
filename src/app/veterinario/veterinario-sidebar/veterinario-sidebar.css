@@ -1,0 +1,24 @@
+.vet-sidebar {
+  background-color: #000000;
+  color: #FFFFFF;
+  width: 220px;
+  min-height: 100vh;
+  padding-top: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.vet-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.vet-sidebar li {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.vet-sidebar li.active,
+.vet-sidebar li:hover {
+  background-color: #FF8C00;
+  color: #fff;
+}

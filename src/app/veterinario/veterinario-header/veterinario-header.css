@@ -1,0 +1,22 @@
+.vet-header {
+  background-color: #000000;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  font-family: Arial, sans-serif;
+}
+
+.vet-header button {
+  background-color: #FF8C00;
+  color: #fff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.vet-header button:hover {
+  background-color: #ff9500;
+}

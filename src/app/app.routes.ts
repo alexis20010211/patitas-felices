@@ -21,18 +21,24 @@ import { AdminLayoutComponent } from '../app/admin/admin-layout/admin-layout';
 import { AdminDashboardComponent } from '../app/admin/admin-dashboard/admin-dashboard';
 import { AdminPanelComponent } from '../app/admin/admin-panel/admin-panel';
 
-// Clientes + Usuarios
+// Cliente + Usuarios
 import { UsuariosComponent } from '../app/usuarios/usuarios/usuarios';
 
 // 🛡️ Guard and Roles
 import { AuthGuard } from '../app/auth/auth.guard';
 import { Role } from '../app/auth/role.enum';
 
-// Cliente
+// Cliente Components
+import { ClientePanelComponent } from '../app/cliente/cliente-panel/cliente-panel';
 import { ClienteDashboardComponent } from '../app/cliente/cliente-dashboard/cliente-dashboard';
+import { ClienteSidebarComponent } from '../app/cliente/cliente-sidebar/cliente-sidebar';
+import { ClienteHeaderComponent } from '../app/cliente/cliente-header/cliente-header';
 
-// Veterinario
+// Veterinario Components
+import { VeterinarioPanelComponent } from '../app/veterinario/veterinario-panel/veterinario-panel';
 import { VeterinarioDashboardComponent } from '../app/veterinario/veterinario-dashboard/veterinario-dashboard';
+import { VeterinarioSidebarComponent } from '../app/veterinario/veterinario-sidebar/veterinario-sidebar';
+import { VeterinarioHeaderComponent } from '../app/veterinario/veterinario-header/veterinario-header';
 
 // Servicios
 import { ServicesComponent } from '../app/home/services/services';
@@ -40,9 +46,11 @@ import { SpecialtiesComponent } from '../app/home/specialties/specialties';
 
 export const appRoutes: Routes = [
 
+  // Ruta inicial
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
 
+  // Auth
   { path: 'auth/login', component: LoginComponent },
 
   // ==========================
@@ -50,7 +58,7 @@ export const appRoutes: Routes = [
   // ==========================
   {
     path: 'admin',
-    component: AdminLayoutComponent, // ✅ Nuevo Layout
+    component: AdminLayoutComponent,
     canActivate: [AuthGuard],
     data: { expectedRole: Role.Admin },
     children: [
@@ -62,6 +70,7 @@ export const appRoutes: Routes = [
       // 🐶 Mascotas
       { path: 'mascotas', component: MascotasComponent },
       { path: 'registro-mascota', component: RegistroMascotaComponent },
+      { path: 'registro-mascota/:id', component: RegistroMascotaComponent },
       { path: 'mascotas/:id/historial', component: HistorialMascotaComponent },
 
       // 📅 Citas
@@ -86,13 +95,22 @@ export const appRoutes: Routes = [
   // ==========================
   {
     path: 'veterinario',
-    component: VeterinarioDashboardComponent,
+    component: VeterinarioPanelComponent, // Layout con header + sidebar
     canActivate: [AuthGuard],
     data: { expectedRole: Role.Veterinario },
     children: [
-      { path: '', redirectTo: 'agenda-citas', pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: VeterinarioDashboardComponent },
+
+      // 🐶 Mascotas
+      { path: 'mascotas', component: MascotasComponent },
+      { path: 'registro-mascota', component: RegistroMascotaComponent },
+      { path: 'registro-mascota/:id', component: RegistroMascotaComponent },
+      { path: 'mascotas/:id/historial', component: HistorialMascotaComponent },
+
+      // 📅 Citas
       { path: 'agenda-citas', component: AgendaCitaComponent },
-      { path: 'detalle-cita/:id', component: DetalleCitaComponent }
+      { path: 'detalle-cita/:id', component: DetalleCitaComponent },
     ]
   },
 
@@ -101,16 +119,26 @@ export const appRoutes: Routes = [
   // ==========================
   {
     path: 'cliente',
-    component: ClienteDashboardComponent,
+    component: ClientePanelComponent, // Layout cliente con header + sidebar
     canActivate: [AuthGuard],
     data: { expectedRole: Role.Cliente },
     children: [
-      { path: '', redirectTo: 'mascotas', pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: ClienteDashboardComponent },
+
+      // 🐶 Mascotas
       { path: 'mascotas', component: MascotasComponent },
+      { path: 'registro-mascota', component: RegistroMascotaComponent },
+      { path: 'registro-mascota/:id', component: RegistroMascotaComponent },
       { path: 'mascotas/:id/historial', component: HistorialMascotaComponent },
-      { path: 'citas', component: CitasComponent }
+
+      // 📅 Citas
+      { path: 'citas', component: CitasComponent },
+      { path: 'agenda-citas', component: AgendaCitaComponent },
+      { path: 'detalle-cita/:id', component: DetalleCitaComponent },
     ]
   },
 
+  // Ruta comodín
   { path: '**', redirectTo: 'home' }
 ];

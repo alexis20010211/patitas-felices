@@ -1,0 +1,10 @@
+.vet-panel {
+  display: flex;
+}
+
+.vet-main {
+  flex: 1;
+  padding: 20px;
+  background-color: #1E1E1E;
+  min-height: 100vh;
+}

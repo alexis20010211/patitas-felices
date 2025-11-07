@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CitaService } from '../../shared/services/cita.service';
-import { MascotaService } from '../../shared/services/mascota.service';
-import { Cita } from '../../shared/models/cita.model';
-import { Mascota } from '../../shared/models/mascota.model';
 import { FormsModule } from '@angular/forms';
+import { MascotaService } from '../../shared/services/mascota.service';
+import { Mascota } from '../../shared/models/mascota.model';
+import { Cita } from '../../shared/models/cita.model';
 
 @Component({
   selector: 'app-historial-mascota',
@@ -18,18 +17,16 @@ export class HistorialMascotaComponent implements OnInit {
   citas: Cita[] = [];
   idSeleccionado: number | null = null;
 
-  constructor(
-    private mascotaService: MascotaService,
-    private citaService: CitaService
-  ) {}
+  constructor(private mascotaService: MascotaService) {}
 
   ngOnInit(): void {
     this.mascotas = this.mascotaService.getMascotas();
   }
 
   verHistorial(): void {
-    if (this.idSeleccionado) {
-      this.citas = this.citaService.getCitasByMascota(this.idSeleccionado);
+    if (this.idSeleccionado !== null) {
+      const mascota = this.mascotaService.getMascotaById(this.idSeleccionado);
+      this.citas = mascota?.historial || [];
     }
   }
 }

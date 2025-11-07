@@ -1,11 +1,56 @@
-<div class="admin-container">
+<section class="dashboard">
+  <!-- Header -->
+  <header class="dashboard-header">
+    <h1>Dashboard</h1>
+    <p class="dashboard-subtitle">Resumen rápido de operaciones</p>
+  </header>
 
-  <!-- Sidebar / Menú lateral -->
-  <app-admin-sidebar class="sidebar"></app-admin-sidebar>
+  <!-- KPIs Cards -->
+  <div class="cards-container">
+    <div class="card kpi-card bg-lightblue">
+      <div class="card-icon">🐶</div>
+      <div class="card-info">
+        <h3>{{ totalMascotas$ | async }}</h3>
+        <p>Total Mascotas</p>
+      </div>
+    </div>
 
-  <!-- Área donde se cargarán las rutas del admin -->
-  <div class="content-area">
-    <router-outlet></router-outlet>
+    <div class="card kpi-card bg-lightgreen">
+      <div class="card-icon">💰</div>
+      <div class="card-info">
+        <h3>S/ {{ ingresosHoy$ | async }}</h3>
+        <p>Ingresos Hoy</p>
+      </div>
+    </div>
+
+    <div class="card kpi-card bg-lightorange">
+      <div class="card-icon">📅</div>
+      <div class="card-info">
+        <h3>{{ citasHoy$ | async }}</h3>
+        <p>Citas Hoy</p>
+      </div>
+    </div>
+
+    <div class="card kpi-card bg-lightpurple">
+      <div class="card-icon">👥</div>
+      <div class="card-info">
+        <h3>{{ clientesActivos$ | async }}</h3>
+        <p>Clientes Activos</p>
+      </div>
+    </div>
   </div>
 
-</div>
+  <!-- Eventos Recientes -->
+  <section class="events-section">
+    <h2>Eventos Recientes</h2>
+    <ul class="events-list">
+      <li *ngFor="let evento of eventos$ | async">{{ evento }}</li>
+    </ul>
+  </section>
+
+  <!-- Acciones -->
+  <div class="actions">
+    <button class="btn btn-add-mascota" (click)="demoAddMascota()">Agregar Mascota Demo</button>
+    <button class="btn btn-add-ingreso" (click)="demoAddIngreso()">Agregar Ingreso Demo</button>
+  </div>
+</section>

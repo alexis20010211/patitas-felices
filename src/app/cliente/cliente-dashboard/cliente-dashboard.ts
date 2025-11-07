@@ -1,38 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { AuthService } from '../../auth/auth.service';
 import { MascotaService } from '../../shared/services/mascota.service';
 import { CitaService } from '../../shared/services/cita.service';
+import { Mascota } from '../../shared/models/mascota.model';
+import { Cita } from '../../shared/models/cita.model';
 
 @Component({
   selector: 'app-cliente-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './cliente-dashboard.html',
   styleUrls: ['./cliente-dashboard.css']
 })
-export class ClienteDashboardComponent {
-  mascotas: any[] = [];
-  citas: any[] = [];
+export class ClienteDashboardComponent implements OnInit {
+  mascotas: Mascota[] = [];
+  citas: Cita[] = [];
 
   constructor(
-    public auth: AuthService,
     private mascotaService: MascotaService,
     private citaService: CitaService
-  ) {
-    this.loadData();
+  ) {}
+
+  ngOnInit(): void {
+    this.mascotas = this.mascotaService.getMascotas();
+    this.citas = this.citaService.getCitas();
   }
 
-  loadData() {
-    if (this.auth.currentUser) {
-      this.mascotas = this.mascotaService.getMascotasByCliente(this.auth.currentUser.username);
-      this.citas = this.citaService.getCitasByCliente(this.auth.currentUser.username);
-    }
-  }
-
-  logout() {
-    this.auth.logout();
-    location.href = '/login';
+  getCitasCount(idMascota: number): number {
+    return this.citas.filter(c => c.mascotaId === idMascota).length;
   }
 }

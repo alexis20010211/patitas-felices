@@ -1,19 +1,131 @@
-.admin-container {
+/* Contenedor principal */
+.dashboard {
+  padding: 2rem;
+  background-color: #f5f6fa;
+  color: #333;
+  min-height: calc(100vh - 80px);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.dashboard-subtitle {
+  color: #777;
+  font-size: 1rem;
+}
+
+/* Cards Container */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Cards */
+.kpi-card {
   display: flex;
-  height: 100vh;
-  background: #121212;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.kpi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+.card-icon {
+  font-size: 2.8rem;
+  margin-right: 1.2rem;
+}
+.card-info h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.card-info p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
 }
 
-.sidebar {
-  width: 250px;
-  min-width: 250px;
-  background: #1c1c1c;
-  border-right: 2px solid #ff7a00;
-}
+/* Card Colors */
+.bg-lightblue { background: #e7f0fd; color: #2a6fdb; }
+.bg-lightgreen { background: #e6f7ed; color: #27ae60; }
+.bg-lightorange { background: #fff4e6; color: #f39c12; }
+.bg-lightpurple { background: #f3eaff; color: #8e44ad; }
 
-.content-area {
-  flex: 1;
-  padding: 20px;
-  color: #fff;
+/* Eventos Recientes */
+.events-section {
+  margin-bottom: 2rem;
+}
+.events-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.events-list {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
   overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+.events-list li {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  color: #555;
+}
+.events-list li:last-child {
+  border-bottom: none;
+}
+
+/* Botones */
+.actions {
+  text-align: right;
+}
+.actions .btn {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+  margin-left: 0.8rem;
+}
+.btn-add-mascota {
+  background-color: #2ecc71;
+  color: white;
+}
+.btn-add-mascota:hover {
+  background-color: #27ae60;
+}
+.btn-add-ingreso {
+  background-color: #3498db;
+  color: white;
+}
+.btn-add-ingreso:hover {
+  background-color: #2980b9;
+}
+
+/* Adaptativo móvil */
+@media(max-width: 600px) {
+  .actions {
+    text-align: center;
+  }
+  .actions .btn {
+    width: 100%;
+    margin: 0.4rem 0;
+  }
 }

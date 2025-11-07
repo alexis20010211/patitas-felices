@@ -24,13 +24,20 @@ export class MascotasComponent implements OnInit {
     this.mascotas = this.mascotaService.getMascotas();
   }
 
+  agregarMascota() {
+    this.router.navigate(['/admin/registro-mascota']);
+  }
+
   eliminarMascota(id: number) {
     this.mascotaService.deleteMascota(id);
-    this.mascotas = this.mascotaService.getMascotas(); // refrescar la lista
+    this.mascotas = this.mascotaService.getMascotas();
   }
 
   verHistorial(id: number) {
-    // Navega a la ruta dinámica del historial de la mascota
-    this.router.navigate([`/mascotas/${id}/historial`]);
+    this.router.navigate([`/admin/mascotas/${id}/historial`]);
+  }
+
+  editarMascota(mascota: Mascota) {
+    this.router.navigate([`/admin/registro-mascota/${mascota.id}`]);
   }
 }

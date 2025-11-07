@@ -1,4 +1,47 @@
-.dashboard-container {
-  padding: 2rem;
+.vet-dashboard {
+  padding: 25px;
+  background-color: #121212;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #FF8C00;
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-section th, .table-section td {
+  padding: 12px;
+  border: 1px solid #FF8C00;
+}
+
+.table-section th {
+  background-color: #FF8C00;
+  color: #000;
 }

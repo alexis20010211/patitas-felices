@@ -1,4 +1,5 @@
 import { Cita } from './cita.model';
+import { Receta } from './receta.model';
 
 export interface Mascota {
   id: number;
@@ -8,5 +9,6 @@ export interface Mascota {
   edad: number;
   peso: number;
   propietario: string;
-  historial?: Cita[]; // Historial de citas
+  historial?: Cita[];
+  recetas?: Receta[];
 }
